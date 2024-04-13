@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créateur d'Erza</title>
+</head>
+<body>
+    <h1>Créateur d'Erza</h1>
+    <form method="POST" action="/">
+        <label for="eraz_id">Entrez l'ID de l'Erza (multiple de 751953751953):</label>
+        <input type="text" id="eraz_id" name="eraz_id" required>
+        <button type="submit">Créer Erza</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <h2>IDs des Erza minés:</h2>
+    <ul>
+        {% for eraz_id in mined_ids %}
+            <li>{{ eraz_id }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
